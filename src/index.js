@@ -4,13 +4,9 @@ var bodyParser = require('body-parser');
 var jwt        = require('express-jwt');
 var morgan = require('morgan');
 
+const start = (settings,mediator,middlewares,routes,config={postLimit:'50mb',routePrefix:'/',morgan:'dev'})=>{
 
-
-
-
-
-const start = (settings,mediator,middlewares,routes,config={postLimit:'50mb'})=>{
-  app.use(morgan('dev'));
+  app.use(morgan(config.morgan));
 
 
   // configure app to use bodyParser()
@@ -20,20 +16,16 @@ const start = (settings,mediator,middlewares,routes,config={postLimit:'50mb'})=>
 
 
 
-  var port = process.env.PORT || 3000;        // set our port
+  var port = settings.port || 3000;        // set our port
 
-  // ROUTES FOR OUR API
-  // =============================================================================
-  var router = express.Router();              // get an instance of the express Router
 
   // REGISTER OUR ROUTES -------------------------------
-  // all of our routes will be prefixed with /api
   //register middlewares
   app.use(middlewares);
 
 
   //register routes
-  app.use('/', router,routes);
+  app.use(config.routePrefix,routes);
 
 
 
@@ -41,10 +33,8 @@ const start = (settings,mediator,middlewares,routes,config={postLimit:'50mb'})=>
   // =============================================================================
 
   server = app.listen(port,function (){
-    mediator.emit('server.started',this);
+    mediator.emit('server.ready',this);
   });
-
-
 
 }
 
