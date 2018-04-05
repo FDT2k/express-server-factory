@@ -1,7 +1,7 @@
 {
 	"name": "express-server-factory",
 	"license": "MIT",
-	"version": "1.0",
+	"version": "1.0.0",
 	"author": "Fabien Di Tore",
 	"main": "src/index.js",
 	"dependencies": {
