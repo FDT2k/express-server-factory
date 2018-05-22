@@ -1,7 +1,6 @@
 var express    = require('express');        // call express
 var app        = express();                 // define our app using express
 var bodyParser = require('body-parser');
-var jwt        = require('express-jwt');
 var morgan = require('morgan');
 
 const start = (settings,mediator,middlewares,routes,config={postLimit:'50mb',routePrefix:'/',morgan:'dev'})=>{
