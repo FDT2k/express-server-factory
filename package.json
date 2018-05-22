@@ -1,11 +1,10 @@
 {
 	"name": "express-server-factory",
 	"license": "MIT",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"author": "Fabien Di Tore",
 	"main": "src/index.js",
 	"dependencies": {
-		"awilix-express": "^1.0.0",
 		"body-parser": "^1.18.2",
 		"express": "^4.16.2",
 		"morgan": "^1.9.0"
