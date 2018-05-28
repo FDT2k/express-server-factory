@@ -32,7 +32,7 @@ const start = (settings,mediator,middlewares,routes,config={postLimit:'50mb',rou
   // =============================================================================
 
   server = app.listen(port,function (){
-    mediator.emit('server.ready',this);
+    mediator.emit('server.ready',{port:port,server:this});
   });
 
 }
